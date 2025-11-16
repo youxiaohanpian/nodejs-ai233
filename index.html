@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 绘图导航站</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- 配置Tailwind自定义颜色和字体 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6366F1',
+            secondary: '#10B981',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .link-hover {
+        @apply transition-all duration-300 hover:bg-primary hover:text-white hover:scale-105;
+      }
+      .card-shadow {
+        @apply shadow-md hover:shadow-lg transition-shadow duration-300;
+      }
+      .favicon {
+        @apply w-8 h-8 rounded-md object-contain mb-2;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans">
+  <!-- 顶部导航栏 -->
+  <header class="bg-white shadow-sm sticky top-0 z-10">
+    <div class="container mx-auto px-4 py-4">
+      <h1 class="text-2xl font-bold text-primary flex items-center justify-center">
+                AI 绘图导航站
+      </h1>
+    </div>
+  </header>
+
+  <!-- 主要内容区 -->
+  <main class="container mx-auto px-4 py-8">
+    <!-- 导航分类 - AI绘图工具 -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+      <svg t="1763255516691" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7974" width="32" height="32"><path d="M428.202667 328.448c-70.442667 79.402667-150.314667 193.962667-219.349334 332.117333a42.666667 42.666667 0 1 1-76.373333-38.186666c72.192-144.341333 156.16-265.173333 231.850667-350.549334 37.802667-42.624 74.24-77.226667 106.922666-101.546666 16.298667-12.16 32.426667-22.314667 47.914667-29.568 14.976-7.082667 32.128-12.714667 49.749333-12.714667a52.906667 52.906667 0 0 1 47.616 29.44c6.698667 13.312 7.424 27.52 7.253334 37.12-0.341333 20.352-5.76 45.781333-12.714667 71.68-14.293333 53.034667-39.381333 123.349333-64.298667 192.768l-3.498666 9.728c-24.149333 67.157333-47.914667 133.248-63.36 186.026667-4.181333 14.250667-7.552 27.008-10.197334 38.186666 29.610667-23.765333 66.133333-59.562667 104.832-97.621333l1.28-1.237333c37.589333-36.949333 77.397333-76.032 110.933334-102.869334 16.682667-13.312 34.645333-25.984 51.968-33.28 14.506667-6.186667 47.786667-16.213333 73.685333 9.685334 16.384 16.384 20.906667 37.717333 22.101333 53.589333 1.28 16.64-0.682667 34.56-3.712 51.626667-5.973333 34.133333-18.090667 73.941333-29.141333 109.866666l-1.749333 5.76c-9.898667 32.042667-18.688 60.672-23.68 83.626667 11.093333-11.093333 24.746667-28.757333 40.704-54.826667a42.666667 42.666667 0 1 1 72.789333 44.586667c-23.168 37.802667-47.146667 68.522667-72.576 87.594667-26.624 19.968-61.44 31.232-96.682667 13.610666-25.941333-13.013333-31.829333-38.826667-33.152-53.162666-1.408-15.488 0.853333-32.384 3.797334-47.573334 5.546667-28.714667 16.426667-63.872 26.666666-97.109333l2.346667-7.594667c11.392-37.034667 21.76-71.637333 26.666667-99.584l1.024-6.186666a356.266667 356.266667 0 0 0-7.722667 5.973333c-29.781333 23.850667-66.602667 59.946667-105.728 98.389333l-1.28 1.28c-37.589333 36.906667-77.397333 76.032-110.933333 102.826667-16.682667 13.354667-34.688 26.026667-51.968 33.322667-14.506667 6.186667-47.786667 16.213333-73.685334-9.685334-13.184-13.184-16.554667-29.824-17.621333-39.936a148.821333 148.821333 0 0 1 0.981333-34.261333c2.901333-22.528 9.642667-49.92 18.176-78.933333 16.213333-55.381333 40.746667-123.733333 64.512-189.824l3.925334-10.88c25.301333-70.485333 49.024-137.130667 62.165333-186.026667l3.157333-12.202667a294.229333 294.229333 0 0 0-9.557333 6.826667c-26.581333 19.797333-58.752 49.92-94.037333 89.728z" p-id="7975" fill="#6366f1"></path></svg>
+        AI绘图工具
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <a href="https://www.midjourney.com/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/midjourney.com" alt="Midjourney" class="favicon">
+          <span class="text-sm font-medium mt-1">Midjourney</span>
+        </a>
+        <a href="https://openai.com/dall-e-2" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/openai.com" alt="DALL·E 2" class="favicon">
+          <span class="text-sm font-medium mt-1">DALL·E 2</span>
+        </a>
+        <a href="https://www.bing.com/create" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/bing.com" alt="Bing Image Creator" class="favicon">
+          <span class="text-sm font-medium mt-1">Bing Image Creator</span>
+        </a>
+        <a href="https://www.lexica.art/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/lexica.art" alt="Lexica" class="favicon">
+          <span class="text-sm font-medium mt-1">Lexica</span>
+        </a>
+        <a href="https://playgroundai.com/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/playgroundai.com" alt="Playground AI" class="favicon">
+          <span class="text-sm font-medium mt-1">Playground AI</span>
+        </a>
+        <a href="https://stability.ai/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/stability.ai" alt="Stable Diffusion" class="favicon">
+          <span class="text-sm font-medium mt-1">Stable Diffusion</span>
+        </a>
+        <a href="https://leonardo.ai/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/leonardo.ai" alt="Leonardo AI" class="favicon">
+          <span class="text-sm font-medium mt-1">Leonardo AI</span>
+        </a>
+        <a href="https://www.imagine.art/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/imagine.art" alt="Imagine Art" class="favicon">
+          <span class="text-sm font-medium mt-1">Imagine Art</span>
+        </a>
+        <a href="https://www.segmind.com/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/segmind.com" alt="Segmind" class="favicon">
+          <span class="text-sm font-medium mt-1">Segmind</span>
+        </a>
+        <a href="https://www.bluewillow.ai/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/bluewillow.ai" alt="BlueWillow" class="favicon">
+          <span class="text-sm font-medium mt-1">BlueWillow</span>
+        </a>
+        <a href="https://www.craiyon.com/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/craiyon.com" alt="Craiyon" class="favicon">
+          <span class="text-sm font-medium mt-1">Craiyon</span>
+        </a>
+        <a href="https://www.nightcafe.studio/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/nightcafe.studio" alt="NightCafe" class="favicon">
+          <span class="text-sm font-medium mt-1">NightCafe</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 导航分类 - 模型资源站 -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+      <svg t="1763255516691" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7974" width="32" height="32"><path d="M428.202667 328.448c-70.442667 79.402667-150.314667 193.962667-219.349334 332.117333a42.666667 42.666667 0 1 1-76.373333-38.186666c72.192-144.341333 156.16-265.173333 231.850667-350.549334 37.802667-42.624 74.24-77.226667 106.922666-101.546666 16.298667-12.16 32.426667-22.314667 47.914667-29.568 14.976-7.082667 32.128-12.714667 49.749333-12.714667a52.906667 52.906667 0 0 1 47.616 29.44c6.698667 13.312 7.424 27.52 7.253334 37.12-0.341333 20.352-5.76 45.781333-12.714667 71.68-14.293333 53.034667-39.381333 123.349333-64.298667 192.768l-3.498666 9.728c-24.149333 67.157333-47.914667 133.248-63.36 186.026667-4.181333 14.250667-7.552 27.008-10.197334 38.186666 29.610667-23.765333 66.133333-59.562667 104.832-97.621333l1.28-1.237333c37.589333-36.949333 77.397333-76.032 110.933334-102.869334 16.682667-13.312 34.645333-25.984 51.968-33.28 14.506667-6.186667 47.786667-16.213333 73.685333 9.685334 16.384 16.384 20.906667 37.717333 22.101333 53.589333 1.28 16.64-0.682667 34.56-3.712 51.626667-5.973333 34.133333-18.090667 73.941333-29.141333 109.866666l-1.749333 5.76c-9.898667 32.042667-18.688 60.672-23.68 83.626667 11.093333-11.093333 24.746667-28.757333 40.704-54.826667a42.666667 42.666667 0 1 1 72.789333 44.586667c-23.168 37.802667-47.146667 68.522667-72.576 87.594667-26.624 19.968-61.44 31.232-96.682667 13.610666-25.941333-13.013333-31.829333-38.826667-33.152-53.162666-1.408-15.488 0.853333-32.384 3.797334-47.573334 5.546667-28.714667 16.426667-63.872 26.666666-97.109333l2.346667-7.594667c11.392-37.034667 21.76-71.637333 26.666667-99.584l1.024-6.186666a356.266667 356.266667 0 0 0-7.722667 5.973333c-29.781333 23.850667-66.602667 59.946667-105.728 98.389333l-1.28 1.28c-37.589333 36.906667-77.397333 76.032-110.933333 102.826667-16.682667 13.354667-34.688 26.026667-51.968 33.322667-14.506667 6.186667-47.786667 16.213333-73.685334-9.685334-13.184-13.184-16.554667-29.824-17.621333-39.936a148.821333 148.821333 0 0 1 0.981333-34.261333c2.901333-22.528 9.642667-49.92 18.176-78.933333 16.213333-55.381333 40.746667-123.733333 64.512-189.824l3.925334-10.88c25.301333-70.485333 49.024-137.130667 62.165333-186.026667l3.157333-12.202667a294.229333 294.229333 0 0 0-9.557333 6.826667c-26.581333 19.797333-58.752 49.92-94.037333 89.728z" p-id="7975" fill="#6366f1"></path></svg>
+        模型资源站
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <a href="https://civitai.com/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/civitai.com" alt="CivitAI" class="favicon">
+          <span class="text-sm font-medium mt-1">CivitAI</span>
+        </a>
+        <a href="https://huggingface.co/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/huggingface.co" alt="Hugging Face" class="favicon">
+          <span class="text-sm font-medium mt-1">Hugging Face</span>
+        </a>
+        <a href="https://modelscope.cn/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/modelscope.cn" alt="ModelScope" class="favicon">
+          <span class="text-sm font-medium mt-1">ModelScope</span>
+        </a>
+        <a href="https://www.liblib.art/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/liblib.art" alt="LiblibAI" class="favicon">
+          <span class="text-sm font-medium mt-1">LiblibAI</span>
+        </a>
+        <a href="https://www.replicate.com/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/replicate.com" alt="Replicate" class="favicon">
+          <span class="text-sm font-medium mt-1">Replicate</span>
+        </a>
+        <a href="https://www.tensor.art/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/tensor.art" alt="Tensor Art" class="favicon">
+          <span class="text-sm font-medium mt-1">Tensor Art</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 导航分类 - 提示词工具 -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+<svg t="1763255516691" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7974" width="32" height="32"><path d="M428.202667 328.448c-70.442667 79.402667-150.314667 193.962667-219.349334 332.117333a42.666667 42.666667 0 1 1-76.373333-38.186666c72.192-144.341333 156.16-265.173333 231.850667-350.549334 37.802667-42.624 74.24-77.226667 106.922666-101.546666 16.298667-12.16 32.426667-22.314667 47.914667-29.568 14.976-7.082667 32.128-12.714667 49.749333-12.714667a52.906667 52.906667 0 0 1 47.616 29.44c6.698667 13.312 7.424 27.52 7.253334 37.12-0.341333 20.352-5.76 45.781333-12.714667 71.68-14.293333 53.034667-39.381333 123.349333-64.298667 192.768l-3.498666 9.728c-24.149333 67.157333-47.914667 133.248-63.36 186.026667-4.181333 14.250667-7.552 27.008-10.197334 38.186666 29.610667-23.765333 66.133333-59.562667 104.832-97.621333l1.28-1.237333c37.589333-36.949333 77.397333-76.032 110.933334-102.869334 16.682667-13.312 34.645333-25.984 51.968-33.28 14.506667-6.186667 47.786667-16.213333 73.685333 9.685334 16.384 16.384 20.906667 37.717333 22.101333 53.589333 1.28 16.64-0.682667 34.56-3.712 51.626667-5.973333 34.133333-18.090667 73.941333-29.141333 109.866666l-1.749333 5.76c-9.898667 32.042667-18.688 60.672-23.68 83.626667 11.093333-11.093333 24.746667-28.757333 40.704-54.826667a42.666667 42.666667 0 1 1 72.789333 44.586667c-23.168 37.802667-47.146667 68.522667-72.576 87.594667-26.624 19.968-61.44 31.232-96.682667 13.610666-25.941333-13.013333-31.829333-38.826667-33.152-53.162666-1.408-15.488 0.853333-32.384 3.797334-47.573334 5.546667-28.714667 16.426667-63.872 26.666666-97.109333l2.346667-7.594667c11.392-37.034667 21.76-71.637333 26.666667-99.584l1.024-6.186666a356.266667 356.266667 0 0 0-7.722667 5.973333c-29.781333 23.850667-66.602667 59.946667-105.728 98.389333l-1.28 1.28c-37.589333 36.906667-77.397333 76.032-110.933333 102.826667-16.682667 13.354667-34.688 26.026667-51.968 33.322667-14.506667 6.186667-47.786667 16.213333-73.685334-9.685334-13.184-13.184-16.554667-29.824-17.621333-39.936a148.821333 148.821333 0 0 1 0.981333-34.261333c2.901333-22.528 9.642667-49.92 18.176-78.933333 16.213333-55.381333 40.746667-123.733333 64.512-189.824l3.925334-10.88c25.301333-70.485333 49.024-137.130667 62.165333-186.026667l3.157333-12.202667a294.229333 294.229333 0 0 0-9.557333 6.826667c-26.581333 19.797333-58.752 49.92-94.037333 89.728z" p-id="7975" fill="#6366f1"></path></svg>
+        提示词工具
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <a href="https://www.promptbase.com/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/promptbase.com" alt="PromptBase" class="favicon">
+          <span class="text-sm font-medium mt-1">PromptBase</span>
+        </a>
+        <a href="https://lexica.art/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/lexica.art" alt="Lexica" class="favicon">
+          <span class="text-sm font-medium mt-1">Lexica</span>
+        </a>
+        <a href="https://www.promptoMANIA.com" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/promptomania.com" alt="PromptoMANIA" class="favicon">
+          <span class="text-sm font-medium mt-1">PromptoMANIA</span>
+        </a>
+        <a href="https://prompthero.com/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/prompthero.com" alt="PromptHero" class="favicon">
+          <span class="text-sm font-medium mt-1">PromptHero</span>
+        </a>
+        <a href="https://www.krea.ai/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/krea.ai" alt="Krea AI" class="favicon">
+          <span class="text-sm font-medium mt-1">Krea AI</span>
+        </a>
+        <a href="https://www.artbreeder.com/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/artbreeder.com" alt="Artbreeder" class="favicon">
+          <span class="text-sm font-medium mt-1">Artbreeder</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 导航分类 - AI工具平台 -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+<svg t="1763255516691" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7974" width="32" height="32"><path d="M428.202667 328.448c-70.442667 79.402667-150.314667 193.962667-219.349334 332.117333a42.666667 42.666667 0 1 1-76.373333-38.186666c72.192-144.341333 156.16-265.173333 231.850667-350.549334 37.802667-42.624 74.24-77.226667 106.922666-101.546666 16.298667-12.16 32.426667-22.314667 47.914667-29.568 14.976-7.082667 32.128-12.714667 49.749333-12.714667a52.906667 52.906667 0 0 1 47.616 29.44c6.698667 13.312 7.424 27.52 7.253334 37.12-0.341333 20.352-5.76 45.781333-12.714667 71.68-14.293333 53.034667-39.381333 123.349333-64.298667 192.768l-3.498666 9.728c-24.149333 67.157333-47.914667 133.248-63.36 186.026667-4.181333 14.250667-7.552 27.008-10.197334 38.186666 29.610667-23.765333 66.133333-59.562667 104.832-97.621333l1.28-1.237333c37.589333-36.949333 77.397333-76.032 110.933334-102.869334 16.682667-13.312 34.645333-25.984 51.968-33.28 14.506667-6.186667 47.786667-16.213333 73.685333 9.685334 16.384 16.384 20.906667 37.717333 22.101333 53.589333 1.28 16.64-0.682667 34.56-3.712 51.626667-5.973333 34.133333-18.090667 73.941333-29.141333 109.866666l-1.749333 5.76c-9.898667 32.042667-18.688 60.672-23.68 83.626667 11.093333-11.093333 24.746667-28.757333 40.704-54.826667a42.666667 42.666667 0 1 1 72.789333 44.586667c-23.168 37.802667-47.146667 68.522667-72.576 87.594667-26.624 19.968-61.44 31.232-96.682667 13.610666-25.941333-13.013333-31.829333-38.826667-33.152-53.162666-1.408-15.488 0.853333-32.384 3.797334-47.573334 5.546667-28.714667 16.426667-63.872 26.666666-97.109333l2.346667-7.594667c11.392-37.034667 21.76-71.637333 26.666667-99.584l1.024-6.186666a356.266667 356.266667 0 0 0-7.722667 5.973333c-29.781333 23.850667-66.602667 59.946667-105.728 98.389333l-1.28 1.28c-37.589333 36.906667-77.397333 76.032-110.933333 102.826667-16.682667 13.354667-34.688 26.026667-51.968 33.322667-14.506667 6.186667-47.786667 16.213333-73.685334-9.685334-13.184-13.184-16.554667-29.824-17.621333-39.936a148.821333 148.821333 0 0 1 0.981333-34.261333c2.901333-22.528 9.642667-49.92 18.176-78.933333 16.213333-55.381333 40.746667-123.733333 64.512-189.824l3.925334-10.88c25.301333-70.485333 49.024-137.130667 62.165333-186.026667l3.157333-12.202667a294.229333 294.229333 0 0 0-9.557333 6.826667c-26.581333 19.797333-58.752 49.92-94.037333 89.728z" p-id="7975" fill="#6366f1"></path></svg>
+        AI工具平台
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <a href="https://www.runwayml.com/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/runwayml.com" alt="Runway" class="favicon">
+          <span class="text-sm font-medium mt-1">Runway</span>
+        </a>
+        <a href="https://www.remove.bg/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/remove.bg" alt="Remove.bg" class="favicon">
+          <span class="text-sm font-medium mt-1">Remove.bg</span>
+        </a>
+        <a href="https://www.upscale.media/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/upscale.media" alt="Upscale Media" class="favicon">
+          <span class="text-sm font-medium mt-1">Upscale Media</span>
+        </a>
+        <a href="https://www.capcut.com/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/capcut.com" alt="CapCut" class="favicon">
+          <span class="text-sm font-medium mt-1">CapCut</span>
+        </a>
+        <a href="https://www.canva.com/" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/canva.com" alt="Canva" class="favicon">
+          <span class="text-sm font-medium mt-1">Canva</span>
+        </a>
+        <a href="https://www.adobe.com/products/firefly.html" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/adobe.com" alt="Adobe Firefly" class="favicon">
+          <span class="text-sm font-medium mt-1">Adobe Firefly</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 导航分类 - 友情链接 -->
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-primary mr-2" viewBox="0 0 16 16">
+          <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1z"/>
+          <path d="M8 4a.5.5 0 0 0-.5.5v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3A.5.5 0 0 0 8 4z"/>
+        </svg>
+        友情链接
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <a href="https://www.ai233.top" target="_blank" class="bg-white rounded-lg p-4 flex flex-col items-center justify-center text-center link-hover card-shadow">
+          <img src="https://icon.horse/icon/ai233.top" alt="银河星区工作站" class="favicon">
+          <span class="text-sm font-medium mt-1">ai233-星区工作日志</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-white py-6 border-t border-gray-200 mt-12">
+    <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+      <p>AI 绘图导航站 &copy; 2025</p>
+    </div>
+  </footer>
+</body>
+</html>
